@@ -1,2 +1,3 @@
-# template
-A template repo for PyCharm projects
+# Учебный проект
+Вебпрога ЛР 2
+
