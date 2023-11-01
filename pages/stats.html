@@ -30,7 +30,54 @@
             <details>
                 <summary>График</summary>
                 <form>
+                    <table border="0" cellspasing="5" cellpadding="5">
+                        <tr>
+                            <td>Значение Ox</td>
+                            <td>Результат</td>
+                        </tr>
 
+                        <tr>
+                            <td><input type="radio" name="ox-val" value="type">Тип</td>
+                            <td>
+                                <input type="checkbox" name="oy-res" value="caliber">Калибр
+                                <ul type="none">
+                                    <li>
+                                        <input type="radio" name="oy-res-caliber" value="max">Макс.
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="oy-res-caliber" value="min">Мин.
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2"><input type="radio" name="ox-val" value="year">Год выпуска</td>
+                            <td>
+                                <input type="checkbox" name="oy-res" value="speed">Скорость
+                                <ul type="none">
+                                    <li>
+                                        <input type="radio" name="oy-res-speed" value="max">Макс.
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="oy-res-speed" value="min">Мин.
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="oy-res" value="mass">Масса
+                                <ul type="none">
+                                    <li>
+                                        <input type="radio" name="oy-res-mass" value="max">Макс.
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="oy-res-mass" value="min">Мин.
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
                     <button type="button">Построить</button>
                 </form>
             </details>
@@ -40,6 +87,43 @@
             <details>
                 <summary>Фильтр</summary>
                 <form>
+                    <imput>
+                        Наименование: <input type="text" name="name">
+                        <br><br>
+
+                        Тип: <input type="text" name="type">
+                        <br><br>
+
+                        Год выпуска: 
+                        от <input type="number" name="year" id="min_year" min="1800" max="2100"> 
+                        до <input type="number" name="year" id="max_year" min="1800" max="2100">
+                        <br><br>
+
+                        Калибр: 
+                        от <input type="number" name="caliber" id="min_caliber" min="0" max="500">
+                        до <input type="number" name="caliber" id="max_caliber" min="0" max="500">
+                        <br><br>
+
+                        Боекомплект: 
+                        от <input type="number" name="ammo" id="min_ammo" min="0" max="3000">
+                        до <input type="number" name="ammo" id="max_ammo" min="0" max="3000">
+                        <br><br>
+
+                        Макс. скорость: 
+                        от <input type="number" name="speed" id="min_speed" min="0" max="200">
+                        до <input type="number" name="speed" id="max_speed" min="0" max="200">
+                        <br><br>
+
+                        Экипаж: 
+                        от <input type="num" name="crew" id="min_crew" min="0" max="10">
+                        до <input type="num" name="crew" id="min_crew" min="0" max="10">
+                        <br><br>
+
+                        На вооружении: 
+                        <input type="radio" name="armed" value="yes">Да
+                        |
+                        <input type="radio" name="armed" value="no">Нет
+                        <br><br>
 
                     <button type="button">Найти</button>
                 </form>
@@ -50,6 +134,45 @@
             <details>
                 <summary>Соритировка</summary>
                 <form>
+                    I уровень: 
+                    <select name="lvl_I">
+                        <option value="0">Нет</option>
+                        <option value="1">Год выпуска</option>
+                        <option value="2">Калибр</option>
+                        <option value="3">Скорость</option> 
+                        <option value="4">Экипаж</option>   
+                        <option value="5">Боекомплект</option> 
+                    </select>
+                    По убыванию?
+                    <input type="checkbox" name="decrease_I">
+                    <br>
+
+                    II уровень:
+                    <select name="lvl_II">
+                        <option value="0">Нет</option>
+                        <option value="1">Год выпуска</option>
+                        <option value="2">Калибр</option>
+                        <option value="3">Скорость</option> 
+                        <option value="4">Экипаж</option>   
+                        <option value="5">Боекомплект</option> 
+                    </select>
+                    По убыванию?
+                    <input type="checkbox" name="decrease_II">
+                    <br>
+
+                    III уровень:
+                    <select name="lvl_III">
+                        <option value="0">Нет</option>
+                        <option value="1">Год выпуска</option>
+                        <option value="2">Калибр</option>
+                        <option value="3">Скорость</option> 
+                        <option value="4">Экипаж</option>   
+                        <option value="5">Боекомплект</option> 
+                    </select>
+                    По убыванию?
+                    <input type="checkbox" name="decrease_III">
+                    <br>
+                    <br>
 
                     <button type="button">Найти</button>
                 </form>
@@ -69,6 +192,16 @@
                 <td>Макс. скорость</td>
                 <td>Экипаж</td>
                 <td>На вооружении</td>
+            </tr>
+            <tr>
+                <td>Т-72Б3М</td>
+                <td>Танк</td>
+                <td>2019 г.</td>
+                <td>125 мм.</td>
+                <td>45 выс.</td>
+                <td>60/5 км/ч</td>
+                <td>3 чле.</td>
+                <td>Да</td>
             </tr>
         </table>
     </div>
