@@ -1,6 +1,6 @@
 # Учебный репозиторий
 
-![a373b8544ad2883c9b9b518f81996f68](https://github.com/FEFU-Oidaho/webproga1/assets/76991612/f17e54e1-ffd3-49c6-bdc2-ec6450a4691f)
+![61baabfbc7829e29e16eb7b5bd2724d1](https://github.com/FEFU-Oidaho/webproga1/assets/76991612/88e0bb8d-8ba2-45eb-ae81-8df906a5d029)
 
 ---
 
