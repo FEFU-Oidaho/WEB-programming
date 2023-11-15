@@ -1,6 +1,6 @@
 body {
-    background: black;
-    color: white;
+    background: #141414;
+    color: #dddfe2;
     margin: 0px;
     padding: 0px;    
 }
@@ -18,8 +18,8 @@ body {
 }
 
 .std-blockstyle {
-    border: solid 3px #262626;
-    background: #131313;
+    border: solid 3px #8d8d8d;
+    background: #222222;
 }
 
 .std-halfborder {
