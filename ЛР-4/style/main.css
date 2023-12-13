@@ -88,13 +88,12 @@ img {
 .vtopic-container > .item-image {
     grid-row: 1 / 3;
     grid-column: 1;
-    border: solid thin red;
 }
 
 .vtopic-container > .item-header {
     grid-row: 1;
     grid-column: 2;
-    border: solid thin red;
+    padding: 5px;
 }
 
 .vtopic-container h3 {
@@ -105,7 +104,6 @@ img {
 .vtopic-container > .item-text {
     grid-row: 2;
     grid-column: 2;
-    border: solid thin red;
     padding: 5px;
 }
 
@@ -113,13 +111,12 @@ img {
 .htopic-container > .item-image {
     grid-row: 1 / 2;
     grid-column: 1;
-    border: solid thin red;
 }
 
 .htopic-container > .item-header {
     grid-row: 1;
     grid-column: 2;
-    border: solid thin red;
+    padding: 5px;
 }
 
 .htopic-container h3 {
@@ -130,7 +127,6 @@ img {
 .htopic-container > .item-text {
     grid-row: 2;
     grid-column: 1 / 3;
-    border: solid thin red;
     padding: 5px;
 }
 
