@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Калькулятор</title>
+</head>
+<body>
+    <div class="task">
+        <img src="trapezoid.png" class="figure_img">
+        <div class="input">
+                <form>
+                    <p>
+                        <label>a =    
+                            <input type="number" id="input_base" min=0 max=200>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <select id="input_optional_name">
+                                <option value="height" selected>h</option>
+                                <option value="side">b</option>
+                            </select>
+                            <input type="number" id="input_optional" min=0 max=200>
+                        </label>
+                    </p>
+                    <p>
+                        Найти: <br>
+                        <label>
+                            <input type="checkbox" id="calc_angles"> углы
+                        </label>
+                        <label>
+                            <input type="checkbox" id="calc_perimeter"> периметр
+                        </label>
+                        <label>
+                            <input type="checkbox" id="calc_square"> площадь
+                        </label>
+                    </p>
+                    <p>
+                        <input type="button" value="Вычислить" onClick="calculate(this.form)">
+                        <input type="submit" value="Очистить">
+                    </p>
+                </form>
+            </div>
+            <div id="output"></div>
+        </div>
+    </div>
+</body>
+<script src="programm.js"></script>
+</html>
