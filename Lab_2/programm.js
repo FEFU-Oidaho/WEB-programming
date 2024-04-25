@@ -1,142 +1,139 @@
 function calculate(data) {
-    /* Проверяем, заполнены ли поля */
-    if (!is_filled("input_optional", "input_base")) {
-        return;
-    }
-
-    /* Валидируем данные */
-    if (!is_valid("input_optional", "input_base")) {
-        return;
-    }
-
-    /* Проверяем, выбрано ли желаемое */
-    if (!is_smt_checked("calc_angles", "calc_perimeter", "calc_square")) {
-        return;
-    }
-
     /* читаем данные */
-    let a = data.input_base.value; /* Высота */
-    let optional_name = data.input_optional.value;  /* Что выбрано */
-    let optional = data.input_optional.value; /* Основание\высота */
+    let a = data.input_base_big; /* Высота */
+    let b = data.input_base_small; /* Высота */
+    let optional = data.input_optional; /* Основание\высота */
+    let optional_name = data.input_optional_name;  /* Что выбрано */
 
+    filled = is_filled(a, b, optional);
+    valid = is_valid(a, b);
+    if (!valid || !filled) {
+        return;
+    }
+    
     /* создаем ссылку на результирующее поле */
     let output = document.getElementById('output');
+    while (output.firstChild) {
+        output.removeChild(output.firstChild);
+    }
 
     /* Вычислять углы? */
     calc_angles(
         data.calc_angles,
         output,
-        a,
-        optional,
-        optional_name
+        parseInt(a.value),
+        parseInt(b.value),
+        parseInt(optional.value),
+        String(optional_name.value)
     );
 
     /* Вычислять периметр? */
     calc_perimeter(
         data.calc_perimeter,
         output,
-        a,
-        optional,
-        optional_name
+        parseInt(a.value),
+        parseInt(b.value),
+        parseInt(optional.value),
+        String(optional_name.value)
     );
 
     /* Вычислять площадь? */
     calc_square(
         data.calc_square,
         output,
-        a,
-        optional,
-        optional_name
+        parseInt(a.value),
+        parseInt(b.value),
+        parseInt(optional.value),
+        String(optional_name.value)
     );
 }
 
-function change_border_color(element, color) {
-    style_string = 'border-color:' + color + ';';
+function change_color(element, color, property) {
+    style_string = property + ':' + color + ';';
     element.setAttribute('style', style_string);
 }
 
-function is_filled(...field_ids) {
+function is_filled(...elements) {
     var counter = 0;
-    field_ids.forEach( field_id => {
-        let content = document.getElementById(field_id);
+    elements.forEach( element => {
         let color;
-        if (!content.value) {
+        if (!element.value) {
             color = "red";
             counter++;
         } else {
             color = "light-dark";
         }
-        change_border_color(content, color);
+        change_color(element, color, "border-color");
     })
 
     return !counter;
 }
 
-function is_valid(...field_ids) {
-    var counter = 0;
-    field_ids.forEach( field_id => {
-        let content = document.getElementById(field_id);
-        let color;
-        if (!(parseInt(content.value) || parseFloat(content.value))) {
-            color = "red";
-            counter++;
-        } else {
-            color = "light-dark";
+function is_valid(big_base, small_base) {
+    let flag;
+    let color;
+    let a = parseInt(big_base.value);
+    let b = parseInt(small_base.value);
+    if (a >= b) {
+        color = "light-dark";
+        flag = true;
+    } else {
+        color = "red";
+        flag = false;
+    }
+
+    change_color(big_base, color, "border-color");
+    change_color(small_base, color, "border-color");
+
+    return flag;
+}
+
+function calc_angles(checkbox, output, a, b, optional, optional_name) {
+    if (checkbox.checked) {
+        let answer_paragraph = document.createElement('p');
+        let answer1 = 0;
+        let answer2 = 0;
+        if (optional_name === "height") {
+            let c = (Math.sqrt((a-b)**2 + optional**2))
+            answer1 = Math.asin(optional/c) * 180/Math.PI;
+            answer2 = 180 - answer1;
+        } else if (optional_name === "side") {
+            let h = (Math.sqrt(optional**2 - (a-b)**2))
+            answer1 = Math.asin(h/optional) * 180/Math.PI;
+            answer2 = 180 - answer1;
         }
-        change_border_color(content, color);
-    })
-
-    return !counter;
+        answer_paragraph.innerHTML = "Угл AC: " + Math.round(answer1) + "<br>";
+        answer_paragraph.innerHTML += "Угл BC: " + Math.round(answer2) + "<br>";
+        answer_paragraph.innerHTML += "Углы HB и HA: 90";
+        output.appendChild(answer_paragraph);
+    }
 }
 
-/* TODO: Неработает, фикс */
-function is_smt_checked(...field_ids) {
-    var counter = field_ids.length();
-    field_ids.forEach( field_id => {
-        let checkbox = document.getElementById(field_id);
-        if (!checkbox.checked) { counter--; }
-    })
-
-    field_ids.forEach( field_id => {
-        let checkbox = document.getElementById(field_id);
-        let color;
-        if (!counter) {
-            color = "red";
-        } else {
-            color = "light-dark";
+function calc_perimeter(checkbox, output, a, b, optional, optional_name) {
+    if (checkbox.checked) {
+        let answer_paragraph = document.createElement('p');
+        let answer = 0;
+        if (optional_name === "height") {
+            answer = a + b + (Math.sqrt((a-b)**2 + optional**2)) + optional;
+        } else if (optional_name === "side") {
+            answer = a + b + (Math.sqrt(optional**2 - (a-b)**2)) + optional;
         }
-        change_border_color(checkbox, color);
-    })
-
-    return counter;
+        answer_paragraph.innerHTML = "Периметр: " + Math.round(answer);
+        output.appendChild(answer_paragraph);
+    }
 }
 
-function calc_angles(checkbox, output, a, optional, optional_name) {
+function calc_square(checkbox, output, a, b, optional, optional_name) {
     if (checkbox.checked) {
-        let answer = document.createElement('p');
-        answer.innerHTML = "1";
-        output.appendChild(answer);
+        let answer_paragraph = document.createElement('p');
+        let answer = 0;
+        if (optional_name === "height") {
+            answer = a * optional - ((a-b)*optional/2);
+        } else if (optional_name === "side") {
+            let h = (Math.sqrt(optional**2 - (a-b)**2));
+            answer = a * h - ((a-b)*h/2);
+        }
+        answer_paragraph.innerHTML = "Площадь: " + Math.round(answer);
+        output.appendChild(answer_paragraph);
     }
-
-    return false;
-}
-
-function calc_perimeter(checkbox, output, a, optional, optional_name) {
-    if (checkbox.checked) {
-        let answer = document.createElement('p');
-        answer.innerHTML = "2";
-        output.appendChild(answer);
-    }
-
-    return false;
-}
-
-function calc_square(checkbox, output, a, optional, optional_name) {
-    if (checkbox.checked) {
-        let answer = document.createElement('p');
-        answer.innerHTML = "3";
-        output.appendChild(answer);
-    }
-
-    return false;
 }
