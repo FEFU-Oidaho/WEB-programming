@@ -1,3 +1,29 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    background-color: gray;
+}
+
+.container {
+    width: 100svw;
+    height: 100svh;
+}
+
+.flex-centered {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.calc-plate {
+    background-color: white;
+    width: 40%;
+    border-radius: 5px;
+    padding: 50px;
+}
+
 .figure_img {
     width: 200px;
 }
