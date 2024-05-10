@@ -67,12 +67,7 @@ let dataFilter = (dataForm) => {
 }
 
 let filterTable = (idTable, dataForm) =>{           
-    let datafilter = dataFilter(dataForm);  
-    let test = '';
-    for (key in datafilter) {
-        test += `${key}: ${datafilter[key]} \n`
-    }
-    alert(test);  
+    let datafilter = dataFilter(dataForm);    
     let tableFilter = buildings.filter(item => {                  
         let result = true;                          
         for(let key in item) {                          
