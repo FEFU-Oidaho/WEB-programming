@@ -1,0 +1,45 @@
+svg { 
+    border:1px solid grey;  
+}
+
+svg text {     
+    font: 8px Verdana; 
+} 
+svg path, line {     
+    fill: none;     
+    stroke: #333333;     
+    width: 1px; 
+} 
+
+.table {
+    width: 100%;
+    height: 38svh;
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 1px;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+}
+
+th {
+    border: solid thin black;
+    background-color: lightgrey;
+    height: 20px;
+}
+
+tr > td {
+    border: solid thin black;
+    background-color: white;
+    text-align: center;
+}
+
+tr > td:first-child {
+    text-align: left;
+}
