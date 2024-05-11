@@ -5,40 +5,44 @@
     <link rel="stylesheet" href="style.css"> 
 </head> 
 <body> 
-    <form id="filter">   
-        <p>     
-            <label for="structure">Название:</label>     
-            <input type="text" id="structure">   
-        </p>   
-        <p>     
-            <label for="category">Тип:</label>     
-            <input type="text" id="category">   
-        </p>   
-        <p>     
-            <label for="country">Страна:</label>     
-            <input type="text" id="country">   
-        </p>   
-        <p>     
-            <label for="city">Город:</label>     
-            <input type="text" id="city">  
-        </p>   
-        <p>     
-            <label for="yearFrom">Год: </label>     
-            от <input type="number" id="yearFrom">      
-            до <input type="number" id="yearTo">   
-        </p>   
-        <p>     
-            <label for="heightFrom">Высота:</label>     
-            от <input type="number" id="heightFrom">      
-            до <input type="number" id="heightTo">   
-        </p>   
-        <input type="button" value="Найти" onClick="filterTable('list', this.form)"> 
-        <input type="button" value="Очистить фильтры" onClick="clearFilter('list', this.form)">
-    </form>
+    <div class="filtering-feild">
+        <form id="filter">   
+            <p>     
+                <label for="structure">Название:</label>     
+                <input type="text" id="structure">   
+            </p>   
+            <p>     
+                <label for="category">Тип:</label>     
+                <input type="text" id="category">   
+            </p>   
+            <p>     
+                <label for="country">Страна:</label>     
+                <input type="text" id="country">   
+            </p>   
+            <p>     
+                <label for="city">Город:</label>     
+                <input type="text" id="city">  
+            </p>   
+            <p>     
+                <label for="yearFrom">Год: </label>     
+                от <input type="number" id="yearFrom">      
+                до <input type="number" id="yearTo">   
+            </p>   
+            <p>     
+                <label for="heightFrom">Высота:</label>     
+                от <input type="number" id="heightFrom">      
+                до <input type="number" id="heightTo">   
+            </p>   
+            <input type="button" value="Найти" onClick="filterTable('list', this.form)"> 
+            <input type="button" value="Очистить фильтры" onClick="clearFilter('list', this.form)">
+        </form>
+    </div>
 
-    <table id="list"> 
+    <div class="content-feild">
+        <table id="list"> 
 
-    </table> 
+        </table>
+    </div>
 </body> 
 <script src="program.js"></script> 
 <script src="data.js"></script> 

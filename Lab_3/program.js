@@ -16,15 +16,18 @@ let clearTable = (idTable) => {
 
 let createTable = (data, idTable) => { 
     let table = document.getElementById(idTable); 
-
+    
+    let thead = document.createElement('thead')
     let tr = document.createElement('tr'); 
     for(key in data[0]) { 
         let th = document.createElement('th'); 
         th.innerHTML = key; 
         tr.append(th); 
     } 
-    table.append(tr);  
+    thead.append(tr);
+    table.append(thead)
 
+    let tbody = document.createElement('tbody')
     data.forEach((item) => { 
         let tr = document.createElement('tr'); 
         for(key in item) { 
@@ -32,8 +35,9 @@ let createTable = (data, idTable) => {
             td.innerHTML = item[key]; 
             tr.append(td); 
         } 
-        table.append(tr);
-    });  
+        tbody.append(tr);
+    });
+    table.append(tbody)
 }
 
 document.addEventListener("DOMContentLoaded", function() {

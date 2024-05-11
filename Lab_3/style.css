@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.filtering-feild {
+    width: 30%;
+}
+
+.content-feild {
+    width: 70%;
+    height: 72svh;
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+    border: solid thin black;
+    border-collapse: separate;
+    border-spacing: 0 1px;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+}
+
+th {
+    border: solid thin black;
+    background-color: lightgrey;
+    height: 20px;
+}
+
+tr > td {
+    border: solid thin black;
+    background-color: white;
+    text-align: center;
+}
+
+tr > td:first-child {
+    text-align: left;
+}
