@@ -7,6 +7,8 @@ function calculate(data) {
 
     filled = is_filled(a, b, optional);
     valid = is_valid(a, b);
+    is_checked(data.calc_angles, data.calc_perimeter,data.calc_square);
+
     if (!valid || !filled) {
         return;
     }
@@ -15,7 +17,7 @@ function calculate(data) {
     let output = document.getElementById('output');
     while (output.firstChild) {
         output.removeChild(output.firstChild);
-    }
+    } 
 
     /* Вычислять углы? */
     calc_angles(
@@ -51,6 +53,37 @@ function calculate(data) {
 function change_color(element, color, property) {
     style_string = property + ':' + color + ';';
     element.setAttribute('style', style_string);
+}
+
+function change_visibility(...ids) {
+    ids.forEach((id) => {
+        let element = document.getElementById(id);
+        if (element.hasAttribute("hidden")) {
+            element.removeAttribute("hidden")
+        } else {
+            element.setAttribute("hidden", "")
+        }
+    })
+}
+
+function reset_visibility(...ids) {
+    ids.forEach((id) => {
+        if (id == "with_c") {
+            element.setAttribute("hidden", "")
+        }
+        if (id == "with_h") {
+            element.removeAttribute("hidden")
+        }
+    })
+}
+
+function is_checked(...elements) {
+    let find_settings = document.getElementById("find_settings");
+    if (!elements.some((element) => element.checked)) {
+        change_color(find_settings, "red", "color");
+    } else {
+        change_color(find_settings, "black", "color");
+    }
 }
 
 function is_filled(...elements) {

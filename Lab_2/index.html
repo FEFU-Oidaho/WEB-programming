@@ -9,8 +9,8 @@
 <body>
     <div class="container flex-centered "> 
         <div class="calc-plate">
-            <img src="Trapezoid_1.png" class="figure_img">
-            <img src="Trapezoid_2.png" class="figure_img">
+            <img src="Trapezoid_1.png" class="figure_img" id="with_c" hidden>
+            <img src="Trapezoid_2.png" class="figure_img" id="with_h">
             <div class="input">
                     <form>
                         <p>
@@ -23,14 +23,14 @@
                         </p>
                         <p>
                             <label>
-                                <select id="input_optional_name">
+                                <select id="input_optional_name" onchange="change_visibility('with_h', 'with_c')">
                                     <option value="height" selected>h</option>
                                     <option value="side">c</option>
                                 </select>
                                 <input type="number" id="input_optional" min=0 max=200>
                             </label>
                         </p>
-                        <p>
+                        <p id="find_settings">
                             Найти: <br>
                             <label>
                                 <input type="checkbox" id="calc_angles"> углы
@@ -44,7 +44,7 @@
                         </p>
                         <p>
                             <input type="button" value="Вычислить" onClick="calculate(this.form)">
-                            <input type="submit" value="Очистить">
+                            <input type="submit" value="Очистить" onclick="reset_visibility('with_h', 'with_c')">
                         </p>
                     </form>
             </div>
