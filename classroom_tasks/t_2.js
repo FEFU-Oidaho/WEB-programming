@@ -6,7 +6,7 @@ function change_page(element_id) {
     for (let i = 0; i < target_elements.length; i++) {
         if (target_elements[i] != element) {
             if (target_elements[i].firstElementChild == null) {
-                let neighbor = target_elements[i].previousElementSibling || target_elements[i].nextElementSibling;
+                let neighbor = target_elements[i].previousElementSibling;
                 if (neighbor) {
                     target_elements[i].innerHTML += " - " + neighbor.innerHTML;
                 }
