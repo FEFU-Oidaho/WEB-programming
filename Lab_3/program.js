@@ -93,6 +93,5 @@ let filterTable = (idTable, dataForm) =>{
 
 let clearFilter = (idTable, dataForm) => {
     dataForm.reset();
-    clearTable(idTable);    
-    createTable(buildings, idTable)
+    rebuild_table
 }

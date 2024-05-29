@@ -1,0 +1,158 @@
+<html lang="ru">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Военная техника</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <div class="size-container">
+        <div class="header-elements">
+          <div class="logo">Техника</div>
+          <div class="menu"><a href="/">Главная</a><a href="/tank.html">Танки</a><a href="/bmp.html">БМП</a><a href="/art.html">Артиллерия</a><a href="/tth.html">ТТХ</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- placeholder--------->
+    <article>
+      <div class="main-container">
+        <div class="tth-container-grid">
+          <div class="tth-container-plane-black">
+            <div class="size-container">
+              <div class="tth-content-table">
+                <table id="tth">
+
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="tth-container-plane-white">
+            <div class="size-container">
+              <div class="tth-container-plates">
+                <div class="tth-container-content-plate">
+                  <h3>График</h3>
+                  <div class="tth-content-controls">
+                    <form class="tth-container-controls-graph-form">
+                      <p>Значение по Ox:<br/>
+                        <label for="Ox_type">Тип техники</label>
+                        <input id="Ox_type" name="Ox_val" type="radio"/><br/>
+                        <label for="Ox_year">Год выпуска</label>
+                        <input id="Ox_year" name="Ox_val" type="radio"/>
+                      </p>
+                      <p>Значение по Oy:<br/>
+                        <label for="Oy_speed">Скорость</label>
+                        <input id="Oy_speed" name="Oy_val" type="checkbox"/><br/>
+                        <label for="Oy_caliber">Калибр</label>
+                        <input id="Oy_caliber" name="Oy_val" type="checkbox"/><br/>
+                        <label for="Oy_ammo">Боекомплект</label>
+                        <input id="Oy_ammo" name="Oy_val" type="checkbox"/><br/>
+                      </p>
+                      <input type="button" class="tth-content-controls-button" onclick="buld_graph(this.form)" value="Построить">
+                    </form>
+                  </div>
+                </div>
+                <div class="tth-container-content-plate">
+                  <h3>Фильтр</h3>
+                  <div class="tth-content-controls">
+                    <form class="tth-container-controls-filter-form">
+                      <p>Год:<br/>
+                        <label for="year_min">от </label>
+                        <input id="year_min" name="year_val" type="number"/>
+                        <label for="year_max">до </label>
+                        <input id="year_max" name="year_val" type="number"/>
+                      </p>
+                      <p>Боекомплект:<br/>
+                        <label for="ammo_min">от </label>
+                        <input id="ammo_min" name="ammo_val" type="number"/>
+                        <label for="ammo_max">до </label>
+                        <input id="ammo_max" name="ammo_val" type="number"/>
+                      </p>
+                      <p>Скорость:<br/>
+                        <label for="speed_min">от </label>
+                        <input id="speed_min" name="speed_val" type="number"/>
+                        <label for="speed_max">до </label>
+                        <input id="speed_max" name="speed_val" type="number"/>
+                      </p>
+                      <p>Экипаж:<br/>
+                        <label for="crew_min">от </label>
+                        <input id="crew_min" name="creew_val" type="number"/>
+                        <label for="crew_max">до </label>
+                        <input id="crew_max" name="creew_val" type="number"/>
+                      </p>
+                      <input type="button" class="tth-content-controls-button" onclick="filter_table(this.form)" value="Применить"/>
+                      <input type="button" class="tth-content-controls-button" onclick="cancel_filter_table(this.form)" value="Очистить"/>
+                    </form>
+                  </div>
+                </div>
+                <div class="tth-container-content-plate">
+                  <h3>Сортировка</h3>
+                  <div class="tth-content-controls">
+                    <form class="tth-container-controls-sort-form">
+                      <p>Уровень I:
+                        <select id="I_name">
+                          <option value="0">Нет</option>
+                          <option value="1">Год выпуска</option>
+                          <option value="2">Калибр</option>
+                          <option value="3">Скорость</option>
+                          <option value="4">Экипаж</option>
+                          <option value="5">Боекомплект</option>
+                        </select>
+                        <label for="I_reverse">По Убыванию?</label>
+                        <input id="I_reverse" type="checkbox"/>
+                      </p>
+                      <p>Уровень II:
+                        <select id="II_name">
+                          <option value="0">Нет</option>
+                          <option value="1">Год выпуска</option>
+                          <option value="2">Калибр</option>
+                          <option value="3">Скорость</option>
+                          <option value="4">Экипаж</option>
+                          <option value="5">Боекомплект</option>
+                        </select>
+                        <label for="II_reverse">По Убыванию?</label>
+                        <input id="II_reverse" type="checkbox"/>
+                      </p>
+                      <p>Уровень III:
+                        <select id="III_name">
+                          <option value="0">Нет</option>
+                          <option value="1">Год выпуска</option>
+                          <option value="2">Калибр</option>
+                          <option value="3">Скорость</option>
+                          <option value="4">Экипаж</option>
+                          <option value="5">Боекомплект</option>
+                        </select>
+                        <label for="III_reverse">По Убыванию?</label>
+                        <input id="III_reverse" type="checkbox"/>
+                      </p>
+                      <input type="button" class="tth-content-controls-button" onclick="sort_table(this.form)" value="Сортировать"/>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <!-- placeholder--------->
+    <footer>
+      <div class="size-container">
+        <div class="footer-elements">
+          <div class="copyrights">
+            <p>© Башинский Р.А., Б9121-09.03.04(4), 2023-2024</p>
+          </div>
+          <div> </div>
+          <div class="contacts">
+            <p>✉ Контакты</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="data.js"></script>
+  <script src="program.js"></script>
+</html>
