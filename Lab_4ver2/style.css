@@ -1,0 +1,33 @@
+body {
+    width: 100svw;
+    height: 100svh;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+svg { 
+    border:1px solid grey;  
+}
+
+.task {
+    width: 30svw;
+    height: 75svh;
+    border: solid thin black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.draw-settings {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-content: center;
+    gap: 20px;
+}
