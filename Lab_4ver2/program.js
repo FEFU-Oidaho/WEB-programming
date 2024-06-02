@@ -89,7 +89,6 @@ function drawSmile() {
     .attr("r", 20)
     .style("fill", "black");
 
-
     return chel   
 }     
 
