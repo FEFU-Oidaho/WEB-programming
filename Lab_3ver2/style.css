@@ -303,7 +303,8 @@ footer {
 .tth-content-table tr {
   text-align: center;
   width: inherit;
-  height: 1%;
+  height:  inherit;
+  overflow-y: scroll;
 }
 .tth-content-table td {
   border: solid thin #fff;
