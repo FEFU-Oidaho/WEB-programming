@@ -48,7 +48,7 @@ DOM_svg.addEventListener('click', function(event) {
     let x = parseInt(event.clientX - rect.left);
     let y = parseInt(event.clientY - rect.top);
    
-    let pict = drawSmile();
+    let pict = drawChel();
     pict.attr("transform", `translate(${x}, ${y})`);
 });
 
@@ -78,25 +78,69 @@ animate_checkbox.addEventListener("change", animation_visibility);
 move_checkbox.addEventListener("change", movements_visibility)
 
 //Функция рисования смайлика
-function drawSmile() {     
-    let chel = svg.append("g")         
-    .style("stroke", "none")                 
-    .style("fill", "none");
-    
+function drawChel() {
+    const chel = svg.append("g");
+
+    // Голова
     chel.append("circle")
-    .attr("cx", 0)
-    .attr("cy", 0)
-    .attr("r", 20)
-    .style("fill", "black");
+        .attr("cx", 25)
+        .attr("cy", 10)
+        .attr("r", 5)
+        .attr("fill", "lightblue")
+        .attr("stroke", "black");
 
-    return chel   
-}     
+    // Тело
+    chel.append("rect")
+        .attr("x", 22)
+        .attr("y", 15)
+        .attr("width", 6)
+        .attr("height", 15)
+        .attr("fill", "blue")
+        .attr("stroke", "black");
 
+    // Левая рука
+    chel.append("line")
+        .attr("x1", 22)
+        .attr("y1", 17)
+        .attr("x2", 15)
+        .attr("y2", 25)
+        .attr("stroke", "black")
+        .attr("stroke-width", 1);
+
+    // Правая рука
+    chel.append("line")
+        .attr("x1", 28)
+        .attr("y1", 17)
+        .attr("x2", 35)
+        .attr("y2", 25)
+        .attr("stroke", "black")
+        .attr("stroke-width", 1);
+
+    // Левая нога
+    chel.append("line")
+        .attr("x1", 24)
+        .attr("y1", 30)
+        .attr("x2", 20)
+        .attr("y2", 40)
+        .attr("stroke", "black")
+        .attr("stroke-width", 1);
+
+    // Правая нога
+    chel.append("line")
+        .attr("x1", 26)
+        .attr("y1", 30)
+        .attr("x2", 30)
+        .attr("y2", 40)
+        .attr("stroke", "black")
+        .attr("stroke-width", 1);
+    
+    return chel
+}
 
 //Функция добавления нового смайлика в SVG, применяя к нему транфсформацию
 function draw (dataForm) { 
     console.log("DEBUG: Создание нового изображения");
-    let new_pict = drawSmile();
+    let new_pict = drawChel();
     let transform_string = `translate(
                                 ${parseInt(dataForm.cx_from.value) + 300},
                                 ${parseInt(dataForm.cy_from.value)*-1 + 300}
@@ -226,7 +270,7 @@ function run_animation(dataForm) {
         "circle": createPathCircle,
         "treyarch": createPathTreyarch
     }
-    let new_pict = drawSmile();
+    let new_pict = drawChel();
 
     if (move_checkbox.checked) {
         path = drawPath(path_points[dataForm.movement_selector.value]())
