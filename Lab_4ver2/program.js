@@ -238,7 +238,7 @@ function drawPath(points) {
    
     const path = svg.append('path')         
     .attr('d', line(points))         
-    .attr('stroke', 'black')         
+    .attr('stroke', 'none')         
     .attr('fill', 'none'); 
 
     return path;     

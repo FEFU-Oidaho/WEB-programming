@@ -151,3 +151,50 @@ let sort_table = (dataForm) => {
 
     rebuild_table(local_data);
 }
+
+
+
+function updateSelectOptions() {
+    const selects = ["I_name", "II_name", "III_name"];
+    const selectedValues = selects.map(id => document.getElementById(id).value);
+    const options = [
+        { value: "НЕТ", text: "Нет" },
+        { value: "Год выпуска", text: "Год выпуска" },
+        { value: "Макс. скорость (км/ч)", text: "Скорость" },
+        { value: "Экипаж (чел.)", text: "Экипаж" },
+        { value: "Боекомплект (шт.)", text: "Боекомплект" }
+    ];
+
+    selects.forEach((id, index) => {
+        const select = document.getElementById(id);
+        const currentValue = select.value;
+        select.innerHTML = "";
+
+        options.forEach(option => {
+            if (option.value === "НЕТ" || selectedValues.indexOf(option.value) === -1 || option.value === currentValue) {
+                const opt = document.createElement("option");
+                opt.value = option.value;
+                opt.text = option.text;
+                if (option.value === currentValue) {
+                    opt.selected = true;
+                }
+                select.appendChild(opt);
+            }
+        });
+    });
+
+    resetFeilds();
+}
+
+function resetFeilds() {
+    const select1 = document.getElementById("I_name");
+    const select2 = document.getElementById("II_name");
+    const select3 = document.getElementById("III_name");
+
+    if (select1.value === "НЕТ") {
+        select2.value = "НЕТ";
+        select3.value = "НЕТ";
+    } else if (select2.value === "НЕТ") {
+        select3.value = "НЕТ";
+    }
+}

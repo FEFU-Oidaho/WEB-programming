@@ -93,40 +93,40 @@
                   <div class="tth-content-controls">
                     <form class="tth-container-controls-sort-form">
                       <p>Уровень I:
-                        <select id="I_name">
-                          <option value="НЕТ" selected>Нет</option>
-                          <option value="Год выпуска">Год выпуска</option>
-                          <option value="Макс. скорость (км/ч)">Скорость</option>
-                          <option value="Экипаж (чел.)">Экипаж</option>
-                          <option value="Боекомплект (шт.)">Боекомплект</option>
-                        </select>
-                        <label for="I_reverse">По Убыванию?</label>
-                        <input id="I_reverse" type="checkbox"/>
+                          <select id="I_name" onchange="updateSelectOptions()">
+                              <option value="НЕТ" selected>Нет</option>
+                              <option value="Год выпуска">Год выпуска</option>
+                              <option value="Макс. скорость (км/ч)">Скорость</option>
+                              <option value="Экипаж (чел.)">Экипаж</option>
+                              <option value="Боекомплект (шт.)">Боекомплект</option>
+                          </select>
+                          <label for="I_reverse">По Убыванию?</label>
+                          <input id="I_reverse" type="checkbox" />
                       </p>
                       <p>Уровень II:
-                        <select id="II_name">
-                          <option value="НЕТ" selected>Нет</option>
-                          <option value="Год выпуска">Год выпуска</option>
-                          <option value="Макс. скорость (км/ч)">Скорость</option>
-                          <option value="Экипаж (чел.)">Экипаж</option>
-                          <option value="Боекомплект (шт.)">Боекомплект</option>
-                        </select>
-                        <label for="II_reverse">По Убыванию?</label>
-                        <input id="II_reverse" type="checkbox"/>
+                          <select id="II_name" onchange="updateSelectOptions()">
+                              <option value="НЕТ" selected>Нет</option>
+                              <option value="Год выпуска">Год выпуска</option>
+                              <option value="Макс. скорость (км/ч)">Скорость</option>
+                              <option value="Экипаж (чел.)">Экипаж</option>
+                              <option value="Боекомплект (шт.)">Боекомплект</option>
+                          </select>
+                          <label for="II_reverse">По Убыванию?</label>
+                          <input id="II_reverse" type="checkbox" />
                       </p>
                       <p>Уровень III:
-                        <select id="III_name">
-                          <option value="НЕТ" selected>Нет</option>
-                          <option value="Год выпуска">Год выпуска</option>
-                          <option value="Макс. скорость (км/ч)">Скорость</option>
-                          <option value="Экипаж (чел.)">Экипаж</option>
-                          <option value="Боекомплект (шт.)">Боекомплект</option>
-                        </select>
-                        <label for="III_reverse">По Убыванию?</label>
-                        <input id="III_reverse" type="checkbox"/>
+                          <select id="III_name" onchange="updateSelectOptions()">
+                              <option value="НЕТ" selected>Нет</option>
+                              <option value="Год выпуска">Год выпуска</option>
+                              <option value="Макс. скорость (км/ч)">Скорость</option>
+                              <option value="Экипаж (чел.)">Экипаж</option>
+                              <option value="Боекомплект (шт.)">Боекомплект</option>
+                          </select>
+                          <label for="III_reverse">По Убыванию?</label>
+                          <input id="III_reverse" type="checkbox" />
                       </p>
-                      <input type="button" class="tth-content-controls-button" onclick="sort_table(this.form)" value="Сортировать"/>
-                    </form>
+                      <input type="button" class="tth-content-controls-button" onclick="sort_table(this.form)" value="Сортировать" />
+                  </form>
                   </div>
                 </div>
               </div>
