@@ -116,7 +116,7 @@ function drawChel() {
         .attr("stroke", "black")
         .attr("stroke-width", 1);
 
-    // Левая нога
+    // Левая ногаs
     chel.append("line")
         .attr("x1", 24)
         .attr("y1", 30)

@@ -101,38 +101,52 @@ let cancel_filter_table = (dataForm) => {
 
 // СОРТИРОВКА ----------------------------------------------------
 
-let sort_data = (data, key, direction) => {
-    let sorted = data.sort((a, b) => {
-        if (direction === 'asc') {
-            return a[key] - b[key];
-        } else if (direction === 'desc') {
-            return b[key] - a[key];
-        }
-    });
+let sort_data = (data, keys) => {
+    return data.sort((a, b) => {
+        for (let key of keys) {
+            let {name, direction} = key;
+            let comparison = 0;
+            if (typeof a[name] === 'string' && typeof b[name] === 'string') {
+                comparison = a[name].localeCompare(b[name]);
+            } else {
+                comparison = a[name] - b[name];
+            }
 
-    return sorted;
+            if (direction === 'desc') {
+                comparison *= -1;
+            }
+
+            if (comparison !== 0) {
+                return comparison;
+            }
+        }
+        return 0;
+    });
 }
 
 let sort_table = (dataForm) => {
+    let sort_keys = [];
 
-    I_key = dataForm.I_name.value
-    I_direction = dataForm.I_reverse.checked ? 'desc' : 'asc';
-    alert(I_key)
-    alert(I_direction)
-    if (I_key != "НЕТ") {
-        local_data = sort_data(local_data, I_key, I_direction);
+    let I_key = dataForm.I_name.value;
+    let I_direction = dataForm.I_reverse.checked ? 'desc' : 'asc';
+    if (I_key !== "НЕТ") {
+        sort_keys.push({name: I_key, direction: I_direction});
     }
 
-    II_key = dataForm.II_name.value
-    II_direction = dataForm.II_reverse.checked ? 'desc' : 'asc';
-    if (I_key != "НЕТ") {
-        local_data = sort_data(local_data, II_key, II_direction);
+    let II_key = dataForm.II_name.value;
+    let II_direction = dataForm.II_reverse.checked ? 'desc' : 'asc';
+    if (II_key !== "НЕТ") {
+        sort_keys.push({name: II_key, direction: II_direction});
     }
 
-    III_key = dataForm.III_name.value
-    III_direction = dataForm.III_reverse.checked ? 'desc' : 'asc';
-    if (I_key != "НЕТ") {
-        local_data = sort_data(local_data, III_key, III_direction);
+    let III_key = dataForm.III_name.value;
+    let III_direction = dataForm.III_reverse.checked ? 'desc' : 'asc';
+    if (III_key !== "НЕТ") {
+        sort_keys.push({name: III_key, direction: III_direction});
+    }
+
+    if (sort_keys.length > 0) {
+        local_data = sort_data(local_data, sort_keys);
     }
 
     rebuild_table(local_data);
